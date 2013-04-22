@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->PUBLIC_PATH; ?>default.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $this->PUBLIC_PATH; ?>admin.css" />
+<link rel="icon" type="image/ico" href="favicon.ico" />
+<script src="<?php echo $this->PUBLIC_PATH; ?>jquery.js"> </script>
+<script src="<?php echo $this->PUBLIC_PATH; ?>javascript.js" > </script>
+<title> <?php echo $this->pageTitle ?> </title>
+</head>
+
+<body>
+<!-- PAGE START -------------------------------------------------------------->
+    <!-- Large Image Panel -->
+    <div id="largeImgPanel" onclick="hideMe(this);">
+        <img id="largeImg" style="margin: 0; padding: 0; margin-top:10px; max-height:90%; max-width: 90%; border: 0px solid grey;" />
+    </div>
+
+    <!-- LOGIN PANEL -->
+    <?php if($this->admin): ?>
+        <form class="loginForm" method="post" >
+                <input type="hidden" name="logout" value="true" />
+                <table>
+                <tr><td>Administrator
+            <?php if($this->localaccess){echo "Local Access";}else{echo "Remote Access";}?> </td> <td>
+            <input type="submit" value="Αποσύνδεση" id="button"/> </td> </tr>
+                </table>
+        </form>
+
+    <?php elseif(isset($_SESSION['username']) && !$this->admin): ?>
+        <form class="loginForm" method="post" >
+            <input type="hidden" name="logout" value="true" />
+            <table>
+            <tr>
+            <td>Χρήστης:</td>
+            <td> <?php echo $_SESSION['email'];?> </td>
+            <td> <input type="submit" value="Αποσύνδεση" id="button"/> </td>
+            </tr>
+            </table>
+        </form>
+
+    <?php else: ?>
+         <form class="loginForm" action='<?php echo $this->FULL_PATH; ?>' method="post">
+            <table>
+            <tr> <td> Χρήστης: </td> <td> <input type="password" name="username" /> </td> <td> <input type="submit" value="Σύνδεση" id="button"/>  </td> </tr>
+            </table>
+        </form>
+    <?php endif; ?>
+
+    <!-- TOP IMAGE -->
+    <div id="mainPicture">
+        <a href='<?php echo $this->PATH; ?>'>
+            <img src="<?php echo $this->IMAGE_PATH; ?>kryptolexa_icon.png"/>
+            <img src="<?php echo $this->IMAGE_PATH; ?>kryptolexa_title.png"/>
+        </a>
+    </div>
+
+    <!-- HEADER PANEL -->
+    <div id="headerTitle">
+        <?php echo $this->headerTitle; ?>
+    </div>
+
+    <!-- Page title and Subtitle -->
+    <div id="headerSubtext">
+       <?php echo $this->headerSubtext; ?>
+    </div>
+
+    <!-- MENU -->
+    <div id="menu">
+        <?php echo $this->menuCapture; ?>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="contentBox">
+        <div class="innerBox">
+            <div class="contentTitle">
+                <?php echo $this->contentTitle; ?>
+            </div>
+            <div class="contentText">
+                <?php echo $this->contentCapture; ?>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer">
+        <a href="http://chris.papapaulou.gr/" > Chris Papapavlou 2013 </a>
+    </div>
+
+<!-- PAGE END -------------------------------------------------------------->
+</body>
+</html>
