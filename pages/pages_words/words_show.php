@@ -12,8 +12,11 @@ if ( $wordContent === false ) {
 $this->headerTitle = "Προβολή Κατηγορίας";
 $this->contentTitle = $wordCateg;
 $content = $wordContent;
-if ($this->userid)
-    $this->headerSubtext = "<a href=\"". $this->PATH."words/edit/".$wordCateg ."\" > Επεξεργασία </a>";
+if ($this->userid) {
+    $this->headerSubtext = "<a href=\"". $this->PATH."words/edit/".$wordCateg ."\" >Επεξεργασία</a>";
+    if ($this->admin) $this->headerSubtext = $this->headerSubtext . "<br/><a href=\"". $this->PATH.'words/admin' ."\" >Admin</a>";
+
+}
 
 /* Create the Menu */
 $this->menuCapture = "";

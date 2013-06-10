@@ -1,19 +1,6 @@
 <?php
 $this->contentTitle = "Κρυπτόλεξα";
 $this->headerTitle = "Κεντρική";
-
-$this->menuItems = array(
-    $this->PATH.'screenshots' => "ΣΤΙΓΜΙΟΤΥΠΑ",
-    $this->PATH.'words' => "ΛΕΞΕΙΣ",
-
-);
-
-if ($this->admin) $this->headerSubtext = "<a href=\"". $this->PATH.'words/admin' ."\" > Admin </a>";
-
-foreach ($this->menuItems as $href=>$text ) {
-    $this->menuCapture .= "<div class='topNavigationLink'><a href='$href'>$text</a></div>\n";
-}
-
 ?>
 
 <div class="entry">

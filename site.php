@@ -53,7 +53,7 @@ class Site
             if ($res && ($row = mysqli_fetch_array($res))) {
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['email'] = $row['email'];
-                $_SESSION['userid'] = $row['userid'];
+                $_SESSION['userid'] = $row['user_id'];
                 $_SESSION['admin'] = $row['admin'];
             }
         }
@@ -67,7 +67,7 @@ class Site
             session_destroy();
         }
 
-        /** Set auth fileds */
+        /** Set auth fields */
         if (isset($_SESSION['userid'])) {
             $this->username = $_SESSION['username'];
             $this->email = $_SESSION['email'];
@@ -79,7 +79,7 @@ class Site
 
     public function frontController ()
     {
-        $this->PATH = 'http://' . $_SERVER['SERVER_NAME'] . '/';
+        $this->PATH = 'http://' . $_SERVER['HTTP_HOST'] . '/';
         $this->PUBLIC_PATH   = $this->PATH . $this->config['paths']['public'];
         $this->IMAGE_PATH    = $this->PATH . $this->config['paths']['image'];
         $this->FULL_PATH     = $this->PATH;
@@ -102,7 +102,11 @@ class Site
 
         $this->pageTitle = "Kryptolexa";
         $this->bypassRender = false;
-        $this->menuCapture = "";
+        $this->menuItems = $this->config['menu_items'];
+        foreach ($this->menuItems as $pg=>$text ) {
+            $this->menuCapture .= "<div class='topNavigationLink'><a href='" . $this->PATH ."$pg'>$text</a></div>\n";
+        }
+
         ob_start();
         include($this->contentScript);
         $this->contentCapture = ob_get_contents();
@@ -115,6 +119,7 @@ class Site
             echo $this->contentCapture;
         else
             include('pages/layout.html');
+
     }
 
 }

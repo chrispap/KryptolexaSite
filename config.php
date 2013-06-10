@@ -1,12 +1,6 @@
 <?php
 
 return array (
-    'default_path' => array (
-        1 => "",
-        2 => "",
-        3 => "",
-    ),
-
     'mysql' => array (
         'user' => "",
         'password' => "",
@@ -14,10 +8,23 @@ return array (
     ),
 
     'paths' => array (
-        'public' => "",
-        'image' => "",
+        'public' => "public/",
+        'image' => "public/images/",
     ),
 
-    'datafile' => "",
+    'datafile' => "data/XXX.php",
 
-    );
+    'menu_items' => array (
+        'words' => "ΛΕΞΕΙΣ",
+        'screenshots' => "ΣΤΙΓΜΙΟΤΥΠΑ",
+        'instructions' => "ΟΔΗΓΙΕΣ",
+    ),
+
+    'default_path' => array (
+        1 => "home",
+        2 => "",
+        3 => "",
+    ),
+
+);
+
