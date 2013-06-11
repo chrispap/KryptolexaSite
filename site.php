@@ -20,11 +20,11 @@ class Site
         $this->frontController();
     }
 
-    public function makePath($path_arr)
+    public function makePath($page)
     {
-        if (!is_array($path_arr)) return $this->FULL_PATH;
+        if (!is_array($page)) return $this->PATH . $page;
         $path = $this->PATH;
-        foreach ($path_arr as &$p) $path .= $p."/";
+        foreach ($page as &$p) $path .= $p."/";
         return rtrim ($path, "/ ");
     }
 
@@ -104,7 +104,7 @@ class Site
         $this->bypassRender = false;
         $this->menuItems = $this->config['menu_items'];
         foreach ($this->menuItems as $pg=>$text ) {
-            $this->menuCapture .= "<div class='topNavigationLink'><a href='" . $this->PATH ."$pg'>$text</a></div>\n";
+            $this->menuCapture .= "<div class='topNavigationLink'><a href='" . $this->makePath($pg) ."'>$text</a></div>\n";
         }
 
         ob_start();
