@@ -1,5 +1,11 @@
 /* A Free Design by Bryant Smith (bryantsmith.com) */
 
+*
+{
+    margin: 0 auto 0 auto;
+    text-align:left;
+}
+
 body
 {
     margin: 0;
@@ -11,12 +17,6 @@ body
     color: #061C37;
     background: #527e39 url(images/bgrepeat.png);
     background-repeat: repeat;
-}
-
-*
-{
-    margin: 0 auto 0 auto;
-    text-align:left;
 }
 
 /* LoginPanel */
@@ -54,9 +54,7 @@ tr.alt td
 
 #menu
 {
-    position: relative;
     overflow: hidden;
-    display: block;
     height:auto;
     width:800px;
     margin-top:10px;

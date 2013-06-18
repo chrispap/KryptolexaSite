@@ -1,3 +1,8 @@
+function onload()
+{
+    document.getElementById('menu').style.width="801px";
+}
+
 function myClickHandler() {
     $("[id*='content']").height(30);
     $(this).parent().find('textarea').height(250);
