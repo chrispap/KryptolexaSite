@@ -24,15 +24,15 @@ $this->contentTitle = $wordCateg;
 $this->headerSubtext = "<a href=\"". $this->PATH . "words/" . $wordCateg ."\" > Τέλος Επεξεργασίας </a>";
 
 /* Create the Menu */
-$this->menuCapture = "";
-$this->menuItems = $Words->pages->getPageTitles();
-foreach ($this->menuItems as &$menuItem ) {
-    $ed = "/edit";
+echo "<div class='wordMenu' >";
+$menuItems = $Words->pages->getPageTitles();
+foreach ($menuItems as &$menuItem ) {
     if ($wordCateg == $menuItem )
-        $this->menuCapture .= "<div class='topNavigationLink'><a style='font-weight: bold; text-decoration:underline;' href='" . $this->PATH . "words/edit/$menuItem'> $menuItem </a></div>\n";
+        echo "<div class='wordMenuItem'><a style='font-weight: bold; text-decoration:underline;' href='" . $this->PATH . "words/edit/$menuItem'> $menuItem </a></div>";
     else
-        $this->menuCapture .= "<div class='topNavigationLink'><a href='" . $this->PATH ."words/edit/$menuItem'> $menuItem </a></div>\n";
+        echo "<div class='wordMenuItem'><a href='" . $this->PATH ."words/edit/$menuItem'> $menuItem </a></div>";
 }
+echo "</div>";
 
 /* Output the Content */
 $num_lines = substr_count($wordContent, "\n");

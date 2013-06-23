@@ -12,7 +12,7 @@ body
     padding: 0;
     text-align: left;
     min-width: 1000px;
-    font-family:"Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
+    font-family: "Georgia";
     font-size: 13px;
     color: #061C37;
     background: #527e39 url(images/bgrepeat.png);
@@ -20,7 +20,8 @@ body
 }
 
 /* LoginPanel */
-.loginForm {
+.loginForm
+{
     float: right;
 
 }
@@ -31,12 +32,14 @@ table
     font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse:collapse;
 }
+
 td, th
 {
     font-size:1em;
     border:1px solid #98bf21;
     padding:3px 7px 2px 7px;
 }
+
 th
 {
     text-align:left;
@@ -45,6 +48,7 @@ th
     background-color:#a0cd1f;
     color:#ffffff;
 }
+
 tr.alt td
 {
     color:#000000;
@@ -69,9 +73,6 @@ tr.alt td
     font-size:14px;
     float:left;
     background-color: rgb(90, 182, 13);
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
     border-radius: 10px;
 }
 
@@ -167,46 +168,86 @@ tr.alt td
     margin-right:13px;
 }
 
-.contentText img {
+.contentText img
+{
     width: auto;
     max-height: 150px;
 }
 
-.contentText img:hover {
+.contentText img:hover
+{
     width: auto;
     max-height: 150px;
     cursor: pointer;
 }
 
-.contentText .rightfloat {
+.contentText .rightfloat
+{
     text-align: right;
     float: right;
     clear: right;
     margin: 10px 0px 10px 10px;
 }
 
-.links {
+.links
+{
     padding: 4px 0px;
     text-align: right;
     font-weight: bold;
 }
 
-.links a {
+.links a
+{
     border: none;
 }
 
-.links a:hover {
+.links a:hover
+{
     border-bottom: 1px dotted #000000;
 }
 
-.links ul {
+.links ul
+{
     list-style-type: none;
     margin-bottom: 0px;
     padding: 0px;
 }
 
-.links li {
+.links li
+{
     margin: 0px;
+}
+
+.wordMenu
+{
+    margin-bottom: 10px;
+/*
+    background-color: #FFFFFF;
+*/
+}
+
+.wordMenuItem
+{
+    display: inline-block;
+    width: auto;
+    text-align:center;
+    margin: 3px 3px 3px 3px;
+    padding: 2px 4px 2px 4px;
+    background-color: rgb(179, 218, 188);
+    border-radius: 5px;
+}
+
+.wordMenuItem a
+{
+    text-decoration: none;
+    font-size:12px;
+    letter-spacing: -1;
+    color: rgb(34, 23, 8);
+}
+
+.wordMenuItem a:hover
+{
+    color:#0C61C9;
 }
 
 #footer
@@ -235,7 +276,8 @@ p
     text-align: left;
 }
 
-#largeImgPanel {
+#largeImgPanel
+{
     text-align: center;
     visibility: hidden;
     position: fixed;

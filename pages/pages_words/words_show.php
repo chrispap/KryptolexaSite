@@ -19,14 +19,15 @@ if ($this->userid) {
 }
 
 /* Create the Menu */
-$this->menuCapture = "";
-$this->menuItems = $Words->pages->getPageTitles();
-foreach ($this->menuItems as &$menuItem ) {
+echo "<div class='wordMenu' >";
+$menuItems = $Words->pages->getPageTitles();
+foreach ($menuItems as &$menuItem ) {
     if ($wordCateg == $menuItem )
-        $this->menuCapture .= "<div class='topNavigationLink'><a style='font-weight: bold; text-decoration:underline;' href='" . $this->PATH . "words/$menuItem'> $menuItem </a></div>\n";
+        echo "<div class='wordMenuItem'><a style='font-weight: bold; text-decoration:underline;' href='" . $this->PATH . "words/$menuItem'> $menuItem </a></div>";
     else
-        $this->menuCapture .= "<div class='topNavigationLink'><a href='" . $this->PATH ."words/$menuItem'> $menuItem </a></div>\n";
+        echo "<div class='wordMenuItem'><a href='" . $this->PATH ."words/$menuItem'> $menuItem </a></div>";
 }
+echo "</div>";
 
 /* Output the Content */
 echo $content;

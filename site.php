@@ -11,7 +11,7 @@ class Site
     private $headerTitle, $headerSubtext;
     private $menuCapture, $contentCapture;
     private $username, $email, $userid, $admin;
-    private $PATH, $FULL_PATH, $PUBLIC_PATH, $IMG_PATH ;
+    private $PATH, $FULL_PATH, $PUBLIC_PATH, $DOWNLOADS_PATH, $IMG_PATH ;
 
     function __construct()
     {
@@ -82,6 +82,7 @@ class Site
         $this->PATH = 'http://' . $_SERVER['HTTP_HOST'] . '/';
         $this->PUBLIC_PATH   = $this->PATH . $this->config['paths']['public'];
         $this->IMAGE_PATH    = $this->PATH . $this->config['paths']['image'];
+        $this->DOWNLOADS_PATH= $this->PATH . $this->config['paths']['downloads'];
         $this->FULL_PATH     = $this->PATH;
 
         /* Extract the case parameter from url */
