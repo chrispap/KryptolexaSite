@@ -5,5 +5,5 @@ $this->headerSubtext = "Όλες οι κατηγορίες";
 
 $Words = new LightSiteAdmin($this->config['datafile']);
 $Words->createForm($this->FULL_PATH);
-$Words->handleForm();
+$Words->handleForm($this->admin);
 $Words->printForm();

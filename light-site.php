@@ -14,7 +14,7 @@ class LightSite {
 
 class LightSiteAdmin extends LightSite {
 
-    protected $form, $newPageTitle, $newPageID, $pagesFieldset;
+    protected $form, $actionUrl, $newPageTitle, $newPageID, $pagesFieldset;
 
     public function __construct($filename){
         parent::__construct($filename);
@@ -30,7 +30,13 @@ class LightSiteAdmin extends LightSite {
     }
     public function createForm($actionUrl){
         /* Create the form object */
+        $this->actionUrl = $actionUrl;
         $this->form = new HTML_Quickform2('wordEditForm', 'post', array('action' => $actionUrl));
+
+        /* Create the fieldset for new page */
+        $fieldset = $this->form->addElement('fieldset', ' ', array('class' => 'newPageFieldset'))->setLabel('Νέα κατηγορία');
+        $this->newPageTitle = $fieldset->addElement('text', 'newPage')->setLabel('Τίτλος Νέας Σελίδας');
+        $this->newPageID = $fieldset->addElement('text', 'newPageID')->setLabel('Κωδικό Όνομα Νέας Σελίδας');
 
         /* Create the fieldset with the categories */
         $this->pagesFieldset = $this->form->addElement('fieldset')->setLabel('Επεξεργασία σελίδων');
@@ -38,18 +44,14 @@ class LightSiteAdmin extends LightSite {
             $this->addPageToForm($page['title'], $page['id'], $page['content']);
         }
 
-        /* Create the fieldset for new page */
-        $fieldset = $this->form->addElement('fieldset', ' ', array('class' => 'newPageFieldset'))->setLabel('Νέα σελίδα');
-        $this->newPageTitle = $fieldset->addElement('text', 'newPage')->setLabel('Τίτλος Νέας Σελίδας');
-        $this->newPageID = $fieldset->addElement('text', 'newPageID')->setLabel('Κωδικό Όνομα Νέας Σελίδας');
-
+        /* Add the submit button */
         $this->form->addElement('submit', null, array('value' => 'Καταχώρηση Αλλαγών', 'class' => 'submitButton' ));
     }
-    public function handleForm(){
+    public function handleForm($perm=false){
         if ( !$this->form->isSubmitted() ) return;
         if ( !isset($this->form) ) $this->createForm();
 
-        // Read new page data
+        /* Read new page data */
         $newPageDataArray = array();
         foreach($this->pagesFieldset->getElements() as $e) {
             if($e->getType()!='group') continue; // Skip any non-group elements
@@ -63,7 +65,7 @@ class LightSiteAdmin extends LightSite {
             array_push( $newPageDataArray, array('title' => $pageTitle, 'id' => $pageId, 'content' => str_replace("\n", "-", $pageContent)));
         }
 
-        // Add the new page if there is one
+        /* Add the new page if there is one */
         if ( ($nt = $this->newPageTitle->getValue()) != "" &&
              ($nid = $this->newPageID->getValue()) != "")
         {
@@ -73,14 +75,8 @@ class LightSiteAdmin extends LightSite {
         }
 
         $this->pages->setDataArray($newPageDataArray);
-
-        if ( $this->saveData() ){
-            header ('location: ');
-            echo "<h3> Οι αλλαγές κατοχυρώθηκαν ! </h3>"; // Den typwnetai pote...
-            }
-        else
-            echo "<h3> Παρουσιάστηκε πρόβλημα κατα την ενημέρωση του περιεχομένου. </h3> <hr /> <br /> ";
-
+        if ($perm) $this->saveData();
+        header("location: ". $this->actionUrl);
     }
     public function printForm(){
         echo $this->form;

@@ -1,19 +1,15 @@
 /* A Free Design by Bryant Smith (bryantsmith.com) */
 
-*
-{
-    margin: 0 auto 0 auto;
-    text-align:left;
+html {
+       overflow-y: scroll;
 }
 
 body
 {
-    margin: 0;
-    padding: 0;
     text-align: left;
     min-width: 1000px;
-    font-family: "Georgia";
-    font-size: 13px;
+    font-family: 'Caudex', serif;
+    font-size: 12px;
     color: #061C37;
     background: #527e39 url(images/bgrepeat.png);
     background-repeat: repeat;
@@ -29,7 +25,6 @@ body
 /* Style tables */
 table
 {
-    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse:collapse;
 }
 
@@ -58,20 +53,25 @@ tr.alt td
 
 #menu
 {
-    overflow: hidden;
     height:auto;
     width:800px;
+    margin: auto auto;
     margin-top:10px;
+/*
+    background-color: #eef3eb;
+*/
 }
 
 .topNavigationLink
 {
+    width: auto;
     text-align:center;
     position:relative;
     margin: 5px 0px 5px 5px;
     padding: 8px;
     font-size:14px;
-    float:left;
+    display: inline-block;
+    width: auto;
     background-color: rgb(90, 182, 13);
     border-radius: 10px;
 }
@@ -79,7 +79,7 @@ tr.alt td
 .topNavigationLink a
 {
     text-decoration: none;
-    font-weight:bold;
+    font-weight: bold;
     letter-spacing: +1px;
     color: rgb(34, 23, 8);
 }
@@ -93,10 +93,8 @@ tr.alt td
 {
     width: 800px;
     text-align: left;
+    margin: auto auto;
     margin-top: 10px;
-/*
-    margin-left: 10px;
-*/
 }
 
 #headerTitle
@@ -107,7 +105,6 @@ tr.alt td
     top:65px;
     font-size:25px;
     color:#FFFFFF;
-    font-family:"Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
 }
 
 #headerSubtext
@@ -115,11 +112,10 @@ tr.alt td
     position:absolute;
     float: right;
     right: 20px;
-    top:95px;
+    top: 105px;
     text-align: right;
     font-size:14px;
     color:#A9C8FA;
-    font-family:"Adobe Garamond Pro Bold", Georgia, "Times New Roman", Times, serif;
 }
 
 #headerSubtext a
@@ -132,9 +128,9 @@ tr.alt td
     width:800px;
     height:auto;
     min-height: 400px;
+    margin: auto auto;
+    padding-bottom: 45px;
     background-color: #eef3eb;
-    margin-top:10px;
-    padding-bottom: 15px;
     background-image:url(images/kryptolexa_footer.png);
     background-repeat: no-repeat;
     background-position: right bottom;
@@ -162,7 +158,7 @@ tr.alt td
 
 .contentText
 {
-    font-size:13px;
+    font-size:14px;
     line-height:24px;
     margin-left:13px;
     margin-right:13px;
@@ -192,7 +188,6 @@ tr.alt td
 .links
 {
     padding: 4px 0px;
-    text-align: right;
     font-weight: bold;
 }
 
@@ -229,9 +224,9 @@ tr.alt td
 .wordMenuItem
 {
     display: inline-block;
-    width: auto;
+    width: 150px;
     text-align:center;
-    margin: 3px 3px 3px 3px;
+    margin: 3px 5px 1px 20px;
     padding: 2px 4px 2px 4px;
     background-color: rgb(179, 218, 188);
     border-radius: 5px;
@@ -239,9 +234,10 @@ tr.alt td
 
 .wordMenuItem a
 {
+    font-family: "Trebuchet MS";
     text-decoration: none;
-    font-size:12px;
-    letter-spacing: -1;
+    font-size:13px;
+    letter-spacing: -2;
     color: rgb(34, 23, 8);
 }
 
@@ -257,9 +253,9 @@ tr.alt td
     background-color: #000000;
     text-align:center;
     font-size:10px;
-    font-family:Arial, Helvetica, sans-serif;
     color:#386172;
     padding-top:5px;
+    margin: auto auto;
     margin-top: 2px;
     margin-bottom: 10px;
 }

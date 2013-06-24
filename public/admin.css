@@ -1,7 +1,11 @@
+.quickform
+{
+    font-size: 11px;
+}
+
 fieldset
 {
     margin-left: 5px;
-    //border: none;
 }
 
 fieldset .row
@@ -25,7 +29,6 @@ fieldset input
 
 fieldset textarea
 {
-    display: block;
     width: 80%;
     height: 65px;
     margin-left: 10px;
@@ -45,9 +48,14 @@ textarea
     float: right;
 }
 
-.newPageFieldset
+.newPageFieldset .row
 {
-    display: block;
+    display: inline-block;
+    width: 330px;
+    height: 78px;
+    padding: 10px;
+    margin: 2px;
+    background-color: rgb(179, 218, 188);
 }
 
 .submitButton

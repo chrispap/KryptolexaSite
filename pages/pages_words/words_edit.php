@@ -1,11 +1,14 @@
 <?php
 /* Handle the FORM */
-if (isset($_POST['formSubmitted'])){
-    $Words = new LightSiteAdmin($this->config['datafile']);
-    $Words->pages->setContent($_POST['oldPageTitle'],  trim($_POST['newPageContent'], " -\n\r\t"));
-    $Words->pages->setTitle($_POST['oldPageTitle'], $_POST['newPageTitle']);
-    $Words->saveData();
-    header("location: ". $this->makePath(array("words", $this->p3)));
+if (isset($_POST['formSubmitted'])) {
+    if ($this->userid )
+    {
+        $Words = new LightSiteAdmin($this->config['datafile']);
+        $Words->pages->setContent($_POST['oldPageTitle'],  trim($_POST['newPageContent'], " -\n\r\t"));
+        $Words->pages->setTitle($_POST['oldPageTitle'], $_POST['newPageTitle']);
+        $Words->saveData();
+    }
+    header("location: ". $this->FULL_PATH);
     return;
 }
 

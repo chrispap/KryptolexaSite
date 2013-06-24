@@ -12,9 +12,9 @@ if ( $wordContent === false ) {
 $this->headerTitle = "Προβολή Κατηγορίας";
 $this->contentTitle = $wordCateg;
 $content = $wordContent;
-if ($this->userid) {
+if ($this->userid || 1) {
     $this->headerSubtext = "<a href=\"". $this->PATH."words/edit/".$wordCateg ."\" >Επεξεργασία</a>";
-    if ($this->admin) $this->headerSubtext = $this->headerSubtext . "<br/><a href=\"". $this->PATH.'words/admin' ."\" >Admin</a>";
+    if ($this->admin || 1) $this->headerSubtext = $this->headerSubtext . "<br/><a href=\"". $this->PATH.'words/admin' ."\" >Admin</a>";
 
 }
 
