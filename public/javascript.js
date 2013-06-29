@@ -3,17 +3,17 @@ function myClickHandler() {
     $(this).parent().find('textarea').height(250);
 }
 
-//~ $(document).ready(function(){
-    //~ $("[id *= 'content' ]").click(myClickHandler);
-//~
-    //~ $(".deleteCheckbox").mouseenter(function(){
-        //~ $(this).append("<div style='width: 400px;margin-left: 20px; color: #ff3030; ' > Επιλογή για διαγραφή αυτής της σελίδας </div>");
-    //~ });
-//~
-    //~ $(".deleteCheckbox").mouseleave(function(){
-        //~ $(this).find('div').remove();
-    //~ });
-//~ });
+$(document).ready(function(){
+    $("[id *= 'content' ]").click(myClickHandler);
+
+    $(".deleteCheckbox").mouseenter(function(){
+        $(this).append("<div style='width: 400px;margin-left: 20px; color: #ff3030;' > Επιλογή για διαγραφή αυτής της σελίδας </div>");
+    });
+
+    $(".deleteCheckbox").mouseleave(function(){
+        $(this).find('div').remove();
+    });
+});
 
 
 function showImage(imgName) {
