@@ -129,7 +129,7 @@ tr.alt td
     height:auto;
     min-height: 400px;
     margin: auto auto;
-    padding-bottom: 95px;
+    padding-bottom: 75px;
     background-color: #eef3eb;
     background-image:url(images/kryptolexa_footer.png);
     background-repeat: no-repeat;
@@ -185,32 +185,25 @@ tr.alt td
     margin: 10px 0px 10px 10px;
 }
 
-.links
-{
+.links {
     padding: 4px 0px;
+    text-align: right;
     font-weight: bold;
 }
 
-.links a
-{
+.links a {
     border: none;
+    text-decoration: none;
 }
 
-.links a:hover
-{
+.links a:hover {
     border-bottom: 1px dotted #000000;
 }
 
-.links ul
-{
+.links ul {
     list-style-type: none;
     margin-bottom: 0px;
-    padding: 0px;
-}
-
-.links li
-{
-    margin: 0px;
+    padding-bottom: 5px;
 }
 
 .wordMenu
