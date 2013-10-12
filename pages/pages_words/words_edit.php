@@ -48,5 +48,6 @@ echo(
         . "<textarea name=\"newPageContent\" rows=\"$num_lines\" >$wordContent</textarea>"
         . "<br/>"
         . "<input type='submit' value='Αποθήκευση Αλλαγών' name='submit' class='submitButton' />"
+        . (isset($this->userid)? "" : "<em style=\"color: #DD0000;\"> Οι αλλαγές που θα κάνετε δεν θα αποθηκευτούν διότι δεν είστε συνδεδεμένος. </em>")
     . "</form>"
 );
