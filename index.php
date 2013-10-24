@@ -1,4 +1,4 @@
 <?php
-include('../lib/site.php');
+include('../SiteFramework/site.php');
 $site = new Site();
 $site -> render();
